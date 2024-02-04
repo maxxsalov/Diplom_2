@@ -38,7 +38,7 @@ class TestUpdateUserInfo:
         assert (response.status_code == 401 and
                 response.text == '{"success":false,"message":"You should be authorised"}')
 
-    @allure.title('Изменение поля почты')
+    @allure.title('Изменение поля почты, когда почта уже используется')
     def test_changed_email_to_email_already_use(self, create_user):
         login, resp = create_user
         body = {"email": "test-data@yandex.ru"}
